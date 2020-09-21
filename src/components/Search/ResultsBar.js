@@ -4,13 +4,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 
-import { thing } from './ex';
+// import { thing } from './ex';
 
 const useStyles = makeStyles({
   card: {
     width: '100%',
-    padding: 12,
-    margin: 3
+    padding: '12px 0',
+    margin: 3,
+    '&:hover': {
+      backgroundColor: 'lightgray',
+      cursor: 'pointer'
+    }
   },
 });
 
@@ -23,8 +27,8 @@ function Results({ searchResults, page, handleUpdatePage, toggleDetails }) {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '40vw' }} >
-      {`Total Results: ${totalCount}`}
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
+      {`Total Results: ${totalCount.toLocaleString()}`}
       <Pagination count={+totalPages} color="primary" page={page} onChange={handleUpdatePage} />
       {items.map((item, index) => {
         return (
