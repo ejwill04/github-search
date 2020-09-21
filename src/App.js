@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,7 +8,6 @@ import {
 
 // components
 import Search from './components/Search';
-import Details from './components/Details';
 
 // styles
 import './App.css';
@@ -26,9 +25,6 @@ const Nav = () => {
 const Routes = () => {
   return (
     <Switch>
-      <Route path='/details'>
-        <Details />
-      </Route>
       <Route path="/">
         <Search />
       </Route>
