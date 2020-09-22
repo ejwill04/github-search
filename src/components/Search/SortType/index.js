@@ -9,8 +9,8 @@ export default function SortType({ sort, setSort }) {
     <>
       <InputLabel id="select-lang-label">Sort Order</InputLabel>
       <Select
-        labelId="demo-simple-select-label"
-        id="simple-select"
+        labelId="select-lang"
+        id="select-lang"
         value={sort}
         style={{ width: 200 }}
         onChange={(e) => setSort(e.target.value)}

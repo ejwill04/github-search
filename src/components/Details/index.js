@@ -7,9 +7,11 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   card: {
-    width: "100%",
     padding: "12px 0",
-    marginTop: 20,
+    margin: 3,
+  },
+  button: {
+    marginBottom: 20,
   },
 });
 
@@ -19,7 +21,11 @@ function Details({ detailedPage, toggleDetails }) {
 
   return (
     <>
-      <Button variant="contained" onClick={() => toggleDetails()}>
+      <Button
+        className={classes.button}
+        variant="contained"
+        onClick={() => toggleDetails()}
+      >
         Back to results
       </Button>
       <Card variant="outlined" className={classes.card}>

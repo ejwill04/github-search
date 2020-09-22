@@ -4,8 +4,10 @@ const octokit = new Octokit();
 
 export const getTotalPages = (res) => {
   try {
-    debugger;
     const { link } = res.headers;
+    if (!link) {
+      return 0;
+    }
     let lastPageLink = res.url;
 
     link.split(" ").forEach((l, index, array) => {

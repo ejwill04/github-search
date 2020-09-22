@@ -39,6 +39,14 @@ const MenuProps = {
 export default function LanguageFilter({ languages, handlelanguages }) {
   const classes = useStyles();
 
+  const renderValue = (selected) => (
+    <div className={classes.chips}>
+      {selected.map((value) => (
+        <Chip key={value} label={value} className={classes.chip} />
+      ))}
+    </div>
+  );
+
   return (
     <FormControl className={classes.formControl}>
       <InputLabel id="select-lang-label">Language Filter</InputLabel>
@@ -49,13 +57,7 @@ export default function LanguageFilter({ languages, handlelanguages }) {
         value={languages}
         onChange={handlelanguages}
         input={<Input />}
-        renderValue={(selected) => (
-          <div className={classes.chips}>
-            {selected.map((value) => (
-              <Chip key={value} label={value} className={classes.chip} />
-            ))}
-          </div>
-        )}
+        renderValue={renderValue}
         MenuProps={MenuProps}
       >
         {langSubset.map((lang) => (

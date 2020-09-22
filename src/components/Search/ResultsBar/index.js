@@ -1,10 +1,9 @@
 import React from "react";
+
 import Pagination from "@material-ui/lab/Pagination";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
-
-// import { thing } from './ex';
 
 const useStyles = makeStyles({
   card: {
@@ -16,7 +15,25 @@ const useStyles = makeStyles({
       cursor: "pointer",
     },
   },
+  wrapper: { display: "flex", flexDirection: "column", alignItems: "center" },
 });
+
+const ResultCards = ({ items, toggleDetails, classes }) => {
+  return items.map((item, index) => {
+    return (
+      <Card
+        key={index}
+        className={classes.card}
+        variant="outlined"
+        onClick={() => toggleDetails(item)}
+      >
+        <Typography variant="body2" component="p">
+          {item.name}
+        </Typography>
+      </Card>
+    );
+  });
+};
 
 function Results({
   searchResults = {},
@@ -32,9 +49,7 @@ function Results({
   }
 
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
+    <div className={classes.wrapper}>
       {`Total Results: ${totalCount.toLocaleString()}`}
       <Pagination
         count={+totalPages}
@@ -42,20 +57,11 @@ function Results({
         page={page}
         onChange={handleUpdatePage}
       />
-      {items.map((item, index) => {
-        return (
-          <Card
-            key={index}
-            className={classes.card}
-            variant="outlined"
-            onClick={() => toggleDetails(item)}
-          >
-            <Typography variant="body2" component="p">
-              {item.name}
-            </Typography>
-          </Card>
-        );
-      })}
+      <ResultCards
+        items={items}
+        toggleDetails={toggleDetails}
+        classes={classes}
+      />
     </div>
   );
 }
