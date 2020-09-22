@@ -11,9 +11,10 @@ This project provides a simple UI for accessing GitHub's repo search API
 
 Further work includes:
 * Increase test coverage for more edge cases and data types (introduce Typescript)
-* Stronger emphasis on UI/UX (loading indicators, more attractive layout)
+* Stronger emphasis on UI/UX (loading indicators, more attractive layout, increased responsiveness)
 * A more detailed language filtering mechanism
 * Authenication to GitHub
+* Routing to handle unique repo results pages
 
 ## Available Scripts
 
