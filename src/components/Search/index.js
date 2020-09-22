@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
+  optionWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
 }));
 
 function Search() {
@@ -93,13 +98,7 @@ function Search() {
         >
           <SearchIcon />
         </IconButton>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <div className={classes.optionWrapper}>
           <SortType sort={sort} setSort={setSort} />
           <LanguageFilter
             languages={languages}
