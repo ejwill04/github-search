@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Chip from '@material-ui/core/Chip';
-import Input from '@material-ui/core/Input';
-import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
-import { makeStyles } from '@material-ui/core/styles';
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import Chip from "@material-ui/core/Chip";
+import Input from "@material-ui/core/Input";
+import MenuItem from "@material-ui/core/MenuItem";
+import InputLabel from "@material-ui/core/InputLabel";
+import { makeStyles } from "@material-ui/core/styles";
 
-import { langSubset } from './languages'
+import { langSubset } from "./languages";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 600,
   },
   chips: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "wrap",
   },
   chip: {
     margin: 2,
@@ -36,7 +36,7 @@ const MenuProps = {
   },
 };
 
-export default function LanguageFilter({ languages, handlelanguages }) {  
+export default function LanguageFilter({ languages, handlelanguages }) {
   const classes = useStyles();
 
   return (
@@ -49,7 +49,7 @@ export default function LanguageFilter({ languages, handlelanguages }) {
         value={languages}
         onChange={handlelanguages}
         input={<Input />}
-        renderValue={selected => (
+        renderValue={(selected) => (
           <div className={classes.chips}>
             {selected.map((value) => (
               <Chip key={value} label={value} className={classes.chip} />
@@ -58,12 +58,12 @@ export default function LanguageFilter({ languages, handlelanguages }) {
         )}
         MenuProps={MenuProps}
       >
-        {langSubset.map(lang => (
+        {langSubset.map((lang) => (
           <MenuItem key={lang.name} value={lang.name}>
             {lang.name}
           </MenuItem>
         ))}
       </Select>
     </FormControl>
-  )
+  );
 }
