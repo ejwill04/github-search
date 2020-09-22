@@ -18,7 +18,12 @@ const useStyles = makeStyles({
   },
 });
 
-function Results({ searchResults = {}, page, handleUpdatePage, toggleDetails }) {
+function Results({
+  searchResults = {},
+  page,
+  handleUpdatePage,
+  toggleDetails,
+}) {
   const classes = useStyles();
   const { items = [], totalCount, totalPages } = searchResults;
 

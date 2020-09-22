@@ -4,7 +4,7 @@ const octokit = new Octokit();
 
 export const getTotalPages = (res) => {
   try {
-    debugger
+    debugger;
     const { link } = res.headers;
     let lastPageLink = res.url;
 
@@ -20,7 +20,7 @@ export const getTotalPages = (res) => {
   }
 };
 
-export const getParams = ({ searchTerm = '', page, sort, languages = [] }) => {
+export const getParams = ({ searchTerm = "", page, sort, languages = [] }) => {
   let params = {
     per_page: 30,
     page,
@@ -33,8 +33,8 @@ export const getParams = ({ searchTerm = '', page, sort, languages = [] }) => {
   if (sort !== "bestMatch") {
     params.sort = sort;
   }
-  return params
-}
+  return params;
+};
 
 export const requestGitHubRepos = async ({
   searchTerm,
@@ -43,7 +43,7 @@ export const requestGitHubRepos = async ({
   languages,
 }) => {
   try {
-    const params = getParams({ searchTerm, page, sort, languages })
+    const params = getParams({ searchTerm, page, sort, languages });
     const res = await octokit.search.repos(params);
 
     const { items, total_count } = res.data;
